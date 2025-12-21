@@ -1,34 +1,36 @@
 <main>
     <header class="text-center text-gray-100 bg-blue-500">
-        <h1 class="font-extrabold text-2xl pt-8">Monitoramento de endpoints</h1>
-        <div class="pb-4 pt-4">
-            <a href="#">create</a>
-            <a href="#">del</a>
-            <a href="#">upt</a>
+        <h1 class="font-extrabold text-3xl pt-8">Monitoramento de Endpoints</h1>
+        <div class="pb-6 pt-4 flex items-center justify-center gap-5">
+            <a href="#">Add</a>
+            <a href="#">Del</a>
+            <a href="#">Updt</a>
         </div>
     </header>
-    <ul>
-        @for (item of data; track item.id) {
-        <li>
-            <div class="bg-orange-200 p-4 py-5">
-                <h3 class="text-lg font-bold">Nome do endpoint:</h3>
-                <h4 class="text-md">{{ item.name }}</h4>
-                <h4 class="font-bold">
-                    Status do endpoint:
-                    <span
-                        class="{{
-                            item.online ? 'text-green-600' : 'text-red-400'
-                        }}"
-                        >{{ item.online ? "Online" : "Offline" }}</span
-                    >
-                </h4>
-                <p class="font-bold">Ping: {{ item.ping }}</p>
-            </div>
-        </li>
-        } @empty {
-        <li>There are no items.</li>
-        }
-    </ul>
+    <main>
+        <ul>
+            @for (item of data; track item.id) {
+            <li>
+                <div class="bg-orange-200 p-4 py-5">
+                    <h3 class="text-lg font-bold">Nome do endpoint:</h3>
+                    <h4 class="text-md">{{ item.name }}</h4>
+                    <h4 class="font-bold">
+                        Status do endpoint:
+                        <span
+                            class="{{
+                                item.online ? 'text-green-600' : 'text-red-400'
+                            }}"
+                            >{{ item.online ? "Online" : "Offline" }}</span
+                        >
+                    </h4>
+                    <p class="font-bold">Ping: {{ item.ping }}</p>
+                </div>
+            </li>
+            } @empty {
+            <li>There are no items.</li>
+            }
+        </ul>
+    </main>
 </main>
 
 <router-outlet />
