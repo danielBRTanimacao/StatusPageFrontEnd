@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 import { getData, uptimeEntity } from '../service/uptimeService';
+import { ModalBaseComponent } from './components/modal-base/modal-base.component';
 
 @Component({
     selector: 'app-root',
-    imports: [RouterOutlet],
+    imports: [RouterOutlet, ModalBaseComponent],
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
 })

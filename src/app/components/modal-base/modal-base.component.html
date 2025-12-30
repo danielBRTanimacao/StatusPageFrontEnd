@@ -1,0 +1,7 @@
+<div>
+    <form [formGroup]="formData" (submit)="submitData()">
+        <input name="name" type="text" formControlName="name" />
+        <input name="url" type="url" formControlName="url" />
+        <button type="submit">Salvar</button>
+    </form>
+</div>

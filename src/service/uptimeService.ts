@@ -11,6 +11,11 @@ export interface uptimeEntity {
     lastChecked: Date;
 }
 
+export interface dataEntity {
+    name: string;
+    url: string;
+}
+
 export async function getData() {
     try {
         const response = await axios.get(endpoint);
@@ -18,5 +23,14 @@ export async function getData() {
     } catch (e) {
         console.error(e);
         return [];
+    }
+}
+
+export function submitData(data: dataEntity) {
+    try {
+        const submit = axios.post(endpoint, data);
+        console.log(submit);
+    } catch (e) {
+        console.error(e);
     }
 }
