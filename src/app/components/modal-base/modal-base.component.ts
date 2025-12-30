@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { submitData } from '../../../service/uptimeService';
+import { dataEntity, submitData } from '../../../service/uptimeService';
 
 @Component({
     selector: 'app-modal-base',
@@ -15,6 +15,14 @@ export class ModalBaseComponent {
     });
 
     submitData() {
-        this.formData.value.name ?? '', this.formData.value.url ?? '';
+        if (this.formData.valid) {
+            const payload: dataEntity = {
+                name: this.formData.value.name ?? '',
+                url: this.formData.value.url ?? '',
+            };
+
+            submitData(payload);
+            this.formData.reset();
+        }
     }
 }
