@@ -13,6 +13,10 @@ import { ModalBaseComponent } from './components/modal-base/modal-base.component
 export class AppComponent implements OnInit {
     data: uptimeEntity[] = [];
 
+    async reloadData() {
+        this.data = await getData();
+    }
+
     async ngOnInit() {
         this.data = await getData();
     }

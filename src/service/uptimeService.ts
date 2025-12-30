@@ -26,9 +26,9 @@ export async function getData() {
     }
 }
 
-export function submitData(data: dataEntity) {
+export async function submitData(data: dataEntity) {
     try {
-        const submit = axios.post(endpoint, data);
+        const submit = await axios.post(endpoint, data);
         console.log(submit);
     } catch (e) {
         console.error(e);

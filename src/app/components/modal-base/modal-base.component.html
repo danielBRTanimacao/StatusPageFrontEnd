@@ -1,7 +1,80 @@
-<div>
-    <form [formGroup]="formData" (submit)="submitData()">
-        <input name="name" type="text" formControlName="name" />
-        <input name="url" type="url" formControlName="url" />
-        <button type="submit">Salvar</button>
-    </form>
+<div
+    *ngIf="isOpen"
+    class="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none"
+>
+    <div
+        (click)="toggleModal()"
+        class="fixed inset-0 bg-black opacity-50"
+    ></div>
+
+    <div class="relative w-full max-w-md mx-auto z-50">
+        <div
+            class="bg-white rounded-lg shadow-xl flex flex-col w-full outline-none focus:outline-none"
+        >
+            <div
+                class="flex items-start justify-between p-5 border-b border-gray-200 rounded-t"
+            >
+                <h3 class="text-xl font-semibold text-gray-900">
+                    Adicionar Endpoint
+                </h3>
+                <button
+                    (click)="toggleModal()"
+                    class="text-gray-400 hover:text-gray-600 text-2xl leading-none font-semibold outline-none focus:outline-none"
+                >
+                    ×
+                </button>
+            </div>
+
+            <form
+                [formGroup]="formData"
+                (ngSubmit)="submitData()"
+                class="p-6 flex-auto"
+            >
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2"
+                        >Nome</label
+                    >
+                    <input
+                        required
+                        formControlName="name"
+                        type="text"
+                        placeholder="Ex: API Produção"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-bold mb-2"
+                        >URL</label
+                    >
+                    <input
+                        required
+                        formControlName="url"
+                        type="url"
+                        placeholder="https://api.exemplo.com"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                </div>
+
+                <div
+                    class="flex items-center justify-end gap-3 pt-4 border-t border-gray-200"
+                >
+                    <button
+                        type="button"
+                        (click)="toggleModal()"
+                        class="text-red-500 hover:text-red-700 font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none transition"
+                    >
+                        Cancelar
+                    </button>
+                    <button
+                        [disabled]="formData.invalid"
+                        type="submit"
+                        class="bg-green-600 hover:bg-green-700 text-white active:bg-green-800 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none transition"
+                    >
+                        Salvar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
