@@ -19,9 +19,11 @@
         <ul>
             @for (item of data; track item.id) {
             <li>
-                <div class="bg-orange-200 m-5 p-5">
-                    <h3 class="text-lg font-bold">Nome do endpoint:</h3>
-                    <h4 class="text-md">{{ item.name }}</h4>
+                <div class="bg-orange-200 hover:bg-orange-300 m-5 p-5">
+                    <h3 class="text-lg">
+                        <span class="font-bold">Nome do endpoint:</span>
+                        {{ item.name }}
+                    </h3>
                     <h4 class="font-bold">
                         Status do endpoint:
                         <span
@@ -35,7 +37,9 @@
                 </div>
             </li>
             } @empty {
-            <li>There are no items.</li>
+            <li class="bg-orange-200 hover:bg-orange-300 m-5 p-5">
+                Você não possui endpoints.
+            </li>
             }
         </ul>
     </main>
