@@ -19,21 +19,32 @@
         <ul>
             @for (item of data; track item.id) {
             <li class="cursor-pointer">
-                <div class="bg-orange-200 hover:bg-orange-300 m-5 p-5">
-                    <h3 class="text-lg">
-                        <span class="font-bold">Nome do endpoint:</span>
-                        {{ item.name }}
-                    </h3>
-                    <h4 class="font-bold">
-                        Status do endpoint:
-                        <span
-                            class="{{
-                                item.online ? 'text-green-600' : 'text-red-600'
-                            }}"
-                            >{{ item.online ? "Online" : "Offline" }}</span
-                        >
-                    </h4>
-                    <p class="font-bold">Ping: {{ item.ping }}ms</p>
+                <div
+                    class="flex items-center justify-between bg-orange-200 hover:bg-orange-300 m-5 p-5"
+                >
+                    <div>
+                        <h3 class="text-lg">
+                            <span class="font-bold">Nome do endpoint:</span>
+                            {{ item.name }}
+                        </h3>
+                        <h4 class="font-bold">
+                            Status do endpoint:
+                            <span
+                                class="{{
+                                    item.online
+                                        ? 'text-green-600'
+                                        : 'text-red-600'
+                                }}"
+                                >{{ item.online ? "Online" : "Offline" }}</span
+                            >
+                        </h4>
+                        <p class="font-bold">Ping: {{ item.ping }}ms</p>
+                    </div>
+                    <div
+                        class="bg-blue-800 w-6 rounded-full flex items-center justify-center"
+                    >
+                        a
+                    </div>
                 </div>
             </li>
             } @empty {
