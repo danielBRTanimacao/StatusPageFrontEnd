@@ -1,18 +1,18 @@
 <main>
     <header class="text-center text-gray-100 bg-blue-500">
         <h1 class="font-extrabold text-3xl pt-8">Monitoramento de Endpoints</h1>
-        <div class="pb-6 pt-4 flex items-center justify-center gap-5 font-bold">
+        <div class="pb-8 pt-8 flex items-center justify-center gap-5 font-bold">
             <button
                 class="hover:text-blue-900 cursor-pointer"
                 (click)="modal.toggleModal()"
             >
                 Add
             </button>
-            <button class="hover:text-blue-900 cursor-pointer">Del</button>
             <button class="hover:text-blue-900 cursor-pointer">Updt</button>
+            <button class="hover:text-blue-900 cursor-pointer">Account</button>
         </div>
     </header>
-    <main class="py-2">
+    <main class="py-1">
         <app-modal-base #modal (saved)="reloadData()" />
     </main>
     <main class="pt-5">
@@ -33,11 +33,11 @@
                             >{{ item.online ? "Online" : "Offline" }}</span
                         >
                     </h4>
-                    <p class="font-bold">Ping: {{ item.ping }}</p>
+                    <p class="font-bold">Ping: {{ item.ping }}ms</p>
                 </div>
             </li>
             } @empty {
-            <li class="bg-orange-200 hover:bg-orange-300 m-5 p-5">
+            <li class="bg-orange-200 font-bold text-center m-5 p-5">
                 Você não possui endpoints.
             </li>
             }
