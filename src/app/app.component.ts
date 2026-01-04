@@ -20,5 +20,9 @@ export class AppComponent implements OnInit {
     async ngOnInit() {
         this.data = await getData();
     }
+
+    toggleDel() {
+        console.log('Trocar');
+    }
     title = 'Monitoramento de Endpoints';
 }

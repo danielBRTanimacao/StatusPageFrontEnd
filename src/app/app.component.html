@@ -8,7 +8,12 @@
             >
                 Add
             </button>
-            <button class="hover:text-blue-900 cursor-pointer">Updt</button>
+            <button
+                (click)="toggleDel()"
+                class="hover:text-blue-900 cursor-pointer"
+            >
+                Updt
+            </button>
             <button class="hover:text-blue-900 cursor-pointer">Account</button>
         </div>
     </header>
@@ -18,7 +23,7 @@
     <main class="pt-5">
         <ul>
             @for (item of data; track item.id) {
-            <li class="cursor-pointer">
+            <li class="">
                 <div
                     class="flex items-center justify-between bg-orange-200 hover:bg-orange-300 m-5 p-5"
                 >
@@ -40,10 +45,11 @@
                         </h4>
                         <p class="font-bold">Ping: {{ item.ping }}ms</p>
                     </div>
-                    <div
-                        class="bg-blue-800 w-6 rounded-full flex items-center justify-center"
-                    >
-                        a
+                    <div class="w-12 h-12 cursor-pointer">
+                        <img
+                            src="https://cdn-icons-png.flaticon.com/512/6467/6467134.png"
+                            alt=""
+                        />
                     </div>
                 </div>
             </li>
