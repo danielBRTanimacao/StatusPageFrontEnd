@@ -11,6 +11,7 @@ import { ModalBaseComponent } from './components/modal-base/modal-base.component
     styleUrl: './app.component.css',
 })
 export class AppComponent implements OnInit {
+    buttonDel = false;
     data: uptimeEntity[] = [];
 
     async reloadData() {
@@ -22,7 +23,7 @@ export class AppComponent implements OnInit {
     }
 
     toggleDel() {
-        console.log('Trocar');
+        this.buttonDel = !this.buttonDel;
     }
     title = 'Monitoramento de Endpoints';
 }
