@@ -25,7 +25,11 @@
             @for (item of data; track item.id) {
             <li class="">
                 <div
-                    class="flex items-center justify-between bg-orange-200 hover:bg-orange-300 m-5 p-5"
+                    class="flex items-center justify-between {{
+                        item.online
+                            ? 'bg-green-200 hover:bg-green-300'
+                            : 'bg-orange-200 hover:bg-orange-300'
+                    }} m-5 p-5"
                 >
                     <div>
                         <h3 class="text-lg">
@@ -37,7 +41,7 @@
                             <span
                                 class="{{
                                     item.online
-                                        ? 'text-green-600'
+                                        ? 'text-green-700'
                                         : 'text-red-600'
                                 }}"
                                 >{{ item.online ? "Online" : "Offline" }}</span
